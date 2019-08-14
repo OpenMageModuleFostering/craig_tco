@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package>
+    <name>Craig_Tco</name>
+    <version>2.3.3</version>
+    <stability>stable</stability>
+    <license uri="http://www.opensource.org/licenses/osl-3.0.php">OSL v3.0</license>
+    <channel>community</channel>
+    <extends/>
+    <summary>2Checkout Payment Extension</summary>
+    <description>2Checkout Payment Extension</description>
+    <notes>Updated image urls</notes>
+    <authors><author><name>Craig Christenson</name><user>Craig2Checkout</user><email>cchristenson@2co.com</email></author></authors>
+    <date>2013-10-01</date>
+    <time>16:41:39</time>
+    <contents><target name="mageetc"><dir name="modules"><file name="Craig_Tco.xml" hash="4a6e92678d9b2a310af880d35a4c355f"/></dir></target><target name="magedesign"><dir name="frontend"><dir name="base"><dir name="default"><dir name="template"><dir name="tco"><file name="form.phtml" hash="08ae585e158550d0a5dccbed3d37758d"/><file name="info.phtml" hash="b714a7398773adc71ea086024dfc96b1"/></dir></dir></dir></dir></dir></target><target name="magelocal"><dir name="Craig"><dir name="Tco"><dir name="Block"><file name="Form.php" hash="b552018543f57090c42784d939004dd4"/><file name="Info.php" hash="ceb4ec03e4de3e4f1dafaf5d7da9b982"/><file name="Redirect.php" hash="1b98352eef4b85d367512cbe9b14fcca"/></dir><dir name="controllers"><file name="NotificationController.php" hash="5bf12db9cfc0719deea1f82dfe3fe1a2"/><file name="RedirectController.php" hash="234c09971716a837f84e459a7d15199f"/></dir><dir name="Model"><file name="Checkout.php" hash="abc306412071808aaa015f0198efc4fb"/><file name="Observer.php" hash="c24b10be82be173a91cd6b53a0cbbd18"/></dir><dir name="Helper"><file name="Data.php" hash="de7680011db7d6821c1f68d70a8fa684"/></dir><dir name="etc"><file name="config.xml" hash="1a8c3472752aebf282b31e991e46d004"/><file name="system.xml" hash="8b8a49a75cd220f0ae7597d70c55f156"/></dir></dir></dir></target></contents>
+    <compatible/>
+    <dependencies><required><php><min>5.2.0</min><max>6.0.0</max></php></required></dependencies>
+</package>
