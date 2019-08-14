@@ -29,46 +29,29 @@ class Craig_Tco_Block_Redirect extends Mage_Core_Block_Abstract
 
         $form = new Varien_Data_Form();
         $form->setAction($tco->getUrl())
-            ->setId('pay')
-            ->setName('pay')
+            ->setId('tcopay')
+            ->setName('tcopay')
             ->setMethod('POST')
             ->setUseContainer(true);
         $tco->getFormFields();
         foreach ($tco->getFormFields() as $field=>$value) {
            $form->addField($field, 'hidden', array('name'=>$field, 'value'=>$value, 'size'=>200));
         }
+        $form->addField('tcosubmit', 'submit', array('name'=>'tcosubmit'));
 
-        $html = '<style type="text/css">
-                    .col-left { display: none; }
-                    .col-right { display: none; }
-                </style>';
+        $html = '<style> #tcosubmit {display:none;} </style>';
 
         if ($tco->getDisplay()) {
-        //inline mode
-            $html .= '<p style=text-align:center;><img style=text-align:center;cursor:pointer src="https://www.2checkout.com/upload/images/logo.png" onclick="formSubmit();" /></p><br />'.
-                    '<p style=text-align:center;>'.$tco->getRedirectMessage().'</p><br />'.
-                    '<p style=text-align:center;><img style=text-align:center;cursor:pointer src="https://www.2checkout.com/upload/images/paymentlogoshorizontal.png" onclick="formSubmit();" /></p><br />'.
-                    $form->toHtml();
-            $html.= '<script type="text/javascript" src="https://www.2checkout.com/static/checkout/javascript/direct.min.js"></script>';
-            $html.= '
-            <script type="text/javascript">
-            function formSubmit(){ 
-                document.getElementById("pay").submit();
-                var elem = document.getElementById("tco_lightbox");
-                elem.style.display = "block";
-            }
-
-            window.onload=function(){
-                formSubmit();
-            };
-            </script>';
+            //inline mode
+            $html .= $form->toHtml();
+            $html.= '<script type="text/javascript">function formSubmit(){ document.getElementById("tcopay").submit();}
+                    window.onload=function(){
+                        formSubmit();
+                    };</script>';
         } else {
-        //dynamic mode
-            $html .= '<p style=text-align:center;><img style=text-align:center;cursor:pointer src="https://www.2checkout.com/upload/images/logo.png" onclick="document.location.reload()" /></p><br />'.
-                    '<p style=text-align:center;>'.$tco->getRedirectMessage().'</p><br />'.
-                    '<p style=text-align:center;><img style=text-align:center;cursor:pointer src="https://www.2checkout.com/upload/images/paymentlogoshorizontal.png" onclick="document.location.reload()" /></p><br />'.
-                    $form->toHtml();
-            $html.= '<script type="text/javascript">function formSubmit(){ document.getElementById("pay").submit();}
+            //dynamic mode
+            $html .= $form->toHtml();
+            $html.= '<script type="text/javascript">function formSubmit(){ document.getElementById("tcopay").submit();}
                     window.onload=function(){
                         formSubmit();
                     };</script>';

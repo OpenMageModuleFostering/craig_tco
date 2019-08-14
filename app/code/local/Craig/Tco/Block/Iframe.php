@@ -19,7 +19,24 @@
  * @license    http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
 
-echo $this->__('2Checkout (Credit Card, Debit Card, PayPal)');
-?>
+class Craig_Tco_Block_Iframe extends Mage_Core_Block_Template
+{
+    protected $_params = array();
 
+    protected function _construct()
+    {
+        parent::_construct();
+        $this->setTemplate('tco/iframe.phtml');
+    }
 
+    public function setParams($params)
+    {
+        $this->_params = $params;
+        return $this;
+    }
+
+    public function getParams()
+    {
+        return $this->_params;
+    }
+}

@@ -80,4 +80,17 @@ class Craig_Tco_RedirectController extends Mage_Core_Controller_Front_Action {
         }
     }
 
+    public function cartAction() {
+        $session = Mage::getSingleton('checkout/session');
+        if ($session->getLastRealOrderId()) {
+            $order = Mage::getModel('sales/order')->loadByIncrementId($session->getLastRealOrderId());
+            if ($order->getId()) {
+                $order->cancel()->save();
+            }
+            $quote = Mage::getModel('sales/quote')->load($order->getQuoteId());
+            $quote->setIsActive(true)->save();
+        }
+        $this->_redirect('checkout/cart');
+    }
+
 }
