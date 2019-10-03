@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Craig_Tco",
+    "name": "OpenMageModuleFostering\/Craig_Tco",
     "type": "magento-module",
     "license": "OSL-v3.0",
     "homepage": "",
     "description": "2Checkout Payment Extension",
     "authors": [
-    {
-        "name": "Craig Christenson",
-        "email": "cchristenson@2checkout.com"
-    }
-],
+        {
+            "name": "Craig Christenson",
+            "email": "cchristenson@2checkout.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
